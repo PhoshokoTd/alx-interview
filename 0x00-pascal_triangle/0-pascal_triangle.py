@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-A function that returns a list of lists of integers representing the Pascal’s triangle of n number
+A function that returns a list of lists o
+f integers representing the Pascal’s triangl
+e of n number
 """
 
 
