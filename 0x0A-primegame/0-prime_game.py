@@ -6,37 +6,34 @@ def isWinner(x, nums):
     """x - rounds
     nums - numbers list
     """
-    if x <= 0 or nums is None:
+    player1 = "Maria"
+    player2 = "Ben"
+    player1_count = 0
+    player2_count = 0
+
+    while x >= 1:
+        for number in nums:
+            prime_list = []  # store prime numbers upto the 'number'
+            for num in range(2, number + 1):
+                is_prime = True
+                for i in range(2, num):
+                    if num % i == 0:
+                        is_prime = False
+                        break
+                if is_prime:
+                    prime_list.append(num)
+
+            if number == 1:
+                player2_count += 1
+            elif len(prime_list) % 2 == 0:
+                player2_count += 1
+            elif len(prime_list) % 2 == 1:
+                player1_count += 1
+
+            x -= 1
+    if player1_count == player2_count:
         return None
-    if x != len(nums):
-        return None
-
-    ben = 0
-    maria = 0
-
-    a = [1 for x in range(sorted(nums)[-1] + 1)]
-    a[0], a[1] = 0, 0
-    for i in range(2, len(a)):
-        rm_multiples(a, i)
-
-    for i in nums:
-        if sum(a[0:i + 1]) % 2 == 0:
-            ben += 1
-        else:
-            maria += 1
-    if ben > maria:
-        return "Ben"
-    if maria > ben:
-        return "Maria"
-    return None
-
-
-def rm_multiples(ls, x):
-    """removes multiple
-    of primes
-    """
-    for i in range(2, len(ls)):
-        try:
-            ls[i * x] = 0
-        except (ValueError, IndexError):
-            break
+    elif player1_count > player2_count:
+        return f"Winner: {player1}"
+    else:
+        return f"Winner: {player2}"
