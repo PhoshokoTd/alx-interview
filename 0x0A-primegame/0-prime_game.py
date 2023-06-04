@@ -3,7 +3,6 @@
 
 
 def isWinner(x, nums):
-
     '''
     Determines winner of Prime Game
     Args:
@@ -12,7 +11,6 @@ def isWinner(x, nums):
     Return:
         Name of winner (Maria or Ben) or None if winner cannot be found
     '''
-
     player1 = "Maria"
     player2 = "Ben"
     player1_count = 0
