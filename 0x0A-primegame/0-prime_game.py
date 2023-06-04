@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-
 """
-Define isWineer function, a solution to the Prime Game problem
+0-prime_game.py defines isWineer function, a solution to the Prime Game problem
 """
 
 
